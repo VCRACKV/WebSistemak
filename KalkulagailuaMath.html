@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kalkulagailua JQuery</title>
+    <style>
+
+        body {
+            font-family: Verdana,sans-serif;
+        }
+
+        div.formularioa {
+            margin: 0 auto;
+            padding: 20px;
+            width: 40%;
+            text-align: center;
+            border-radius: 10px;
+            background: #f2f2f2;
+        }
+
+        input {
+            border: 1px solid grey;
+            border-radius: 4px;
+        }
+
+        .botoia {
+            width: 40%;
+            background-color: MediumSeaGreen;
+            color: black;
+            cursor: pointer;
+        }
+
+        .botoia:hover {
+            color: white;
+            background-color: SeaGreen;
+        }
+
+    </style>
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="application/javascript">
+
+        $(document).ready(function () {
+
+            $("#esp").on("keyup", function () {
+
+                var z1 = parseInt(document.getElementById("z1").value);
+                var z2 = parseInt(document.getElementById("z2").value);
+                var erag = document.getElementById("erag").selectedIndex;
+                var esp = parseInt(document.getElementById("esp").value);
+
+                switch (erag) {
+                    case 0:
+                        console.log("+");
+                        ema = z1 + z2;
+                        if (isNaN(z1) == true || isNaN(z2) == true || isNaN(esp) == true) {
+                            $("#asm").text("Zenbaki bat sartu!!");
+                            break;
+                        }
+
+                        if (ema == esp) {
+                            $("#asm").html("<p style='color:green'><b>ZUZENA!</b></p>");
+                            break;
+                        }
+
+                        if (ema != esp) {
+                            $("#asm").html("<p style='color:red'><b>GAIZKI!</b></p>");
+                            break;
+                        }
+
+                    case 1:
+                        ema = z1 - z2;
+                        if (isNaN(z1) == true || isNaN(z2) == true || isNaN(esp) == true) {
+                            $("#asm").text("Zenbaki bat sartu!!");
+                            break;
+                        }
+
+                        if (ema == esp) {
+                            $("#asm").html("<p style='color:green'><b>ZUZENA!</b></p>");
+                            break;
+                        }
+
+                        if (ema != esp) {
+                            $("#asm").html("<p style='color:red'><b>GAIZKI!</b></p>");
+                            break;
+                        }
+
+
+                    case 2:
+                        ema = z1 * z2;
+                        if (isNaN(z1) == true || isNaN(z2) == true || isNaN(esp) == true) {
+                            $("#asm").text("Zenbaki bat sartu!!");
+                            break;
+                        }
+
+                        if (ema == esp) {
+                            $("#asm").html("<p style='color:green'><b>ZUZENA!</b></p>");
+                            break;
+                        }
+
+                        if (ema != esp) {
+                            $("#asm").html("<p style='color:red'><b>GAIZKI!</b></p>");
+                            break;
+                        }
+
+
+                    case 3:
+                        ema = z1 / z2;
+                        if (isNaN(z1) == true || isNaN(z2) == true || isNaN(esp) == true) {
+                            $("#asm").text("Zenbaki bat sartu!!");
+                            break;
+                        }
+
+                        if (z2 == 0) {
+                            $("#asm").text("Ezin da zati 0 egin!");
+                            break;
+                        }
+
+                        if (ema == esp) {
+                            $("#asm").html("<p style='color:green'><b>ZUZENA!</b></p>");
+                            break;
+                        }
+
+                        if (ema != esp) {
+                            $("#asm").html("<p style='color:red'><b>GAIZKI!</b></p>");
+                            break;
+                        }
+                     
+                    default:
+
+                }
+
+            });
+
+            $("#garbitu").click(function () {
+                $("#asm").html("<p></p>");
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+
+<div class="formularioa">
+    <h1><u>Kalkulagailua</u></h1>
+    <form>
+        <u>Sartu zenbakiak eta aukeratu eragiketa:</u>
+
+        <div style="text-align: left; padding: 10px">
+            <br>Lehen eragigaila:
+            <input type="text" id="z1">
+            <br>Eragiketa:
+            <select name="eragiketak" id="erag">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <br>Bigarren eragigaila:
+            <input type="text" id="z2">
+        </div>
+        <div>
+            Espero duguna:
+            <input type="text" id="esp" style="margin-right: 20px">
+            <p id="asm"></p>
+        </div>
+        <br>
+        <div>
+            <input class="botoia" type="reset" value="Garbitu" id="garbitu">
+        </div>
+
+    </form>
+</div>
+
+<div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" 
+href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website_wsjf&utm_content=footer_img"><img 
+src="https://cloud.githubusercontent.com/assets/23024110/20663010/9968df22-b55e-11e6-941d-edbc894c2b78.png"  alt="www.000webhost.com"></a></div></body>
+</html>
